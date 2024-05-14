@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       ElasticPress Proxy
  * Description:       A custom PHP Proxy to handle Instant Results requests.
- * Version:           1.0.2
+ * Version:           1.1.0
  * Author:            10up | ElasticPress.io
  * Author URI:        https://elasticpress.io
  * Text Domain:       elasticpress-proxy
