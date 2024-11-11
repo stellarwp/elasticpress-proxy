@@ -68,23 +68,3 @@ function set_proxy() {
 	return content_url( 'proxy.php' );
 }
 add_filter( 'ep_instant_results_search_endpoint', __NAMESPACE__ . '\set_proxy' );
-
-/**
- * Function to copy stub file to content directory after install.
- *
- * Called by Composer
- *
- * @return bool
- */
-function copy_stub_file() {
-    $source = plugin_dir_path( __FILE__ ) . 'stubs/proxy.php';
-    $destination = WP_CONTENT_DIR . '/proxy.php';
-
-    if ( ! copy( $source, $destination ) ) {
-        echo "Failed to copy proxy file to content directory.\n";
-        return false;
-    }
-
-    echo "Successfully copied proxy file to content directory.\n";
-    return true;
-}
