@@ -1,5 +1,13 @@
 {
     "name": "stellarwp/elasticpress-proxy",
     "type": "wordpress-plugin",
-    "version": "1.1.0"
+    "version": "1.2.0",
+    "scripts": {
+        "post-install-cmd": [
+            "ElasticPress_Custom_Proxy\\copy_stub_file"
+        ],
+        "post-update-cmd": [
+            "ElasticPress_Custom_Proxy\\copy_stub_file"
+        ]
+    }
 }

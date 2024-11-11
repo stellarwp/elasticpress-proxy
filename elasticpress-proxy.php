@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       ElasticPress Proxy
  * Description:       A custom PHP Proxy to handle Instant Results requests.
- * Version:           1.1.0
+ * Version:           1.2.0
  * Author:            10up | ElasticPress.io
  * Author URI:        https://elasticpress.io
  * Text Domain:       elasticpress-proxy
@@ -65,6 +65,26 @@ add_action( 'ep_instant_results_template_saved', __NAMESPACE__ . '\save_template
  * @return string
  */
 function set_proxy() {
-	return plugin_dir_url( __FILE__ ) . 'proxy.php';
+	return content_url( 'proxy.php' );
 }
 add_filter( 'ep_instant_results_search_endpoint', __NAMESPACE__ . '\set_proxy' );
+
+/**
+ * Function to copy stub file to content directory after install.
+ *
+ * Called by Composer
+ *
+ * @return bool
+ */
+function copy_stub_file() {
+    $source = plugin_dir_path( __FILE__ ) . 'stubs/proxy.php';
+    $destination = WP_CONTENT_DIR . '/proxy.php';
+
+    if ( ! copy( $source, $destination ) ) {
+        echo "Failed to copy proxy file to content directory.\n";
+        return false;
+    }
+
+    echo "Successfully copied proxy file to content directory.\n";
+    return true;
+}

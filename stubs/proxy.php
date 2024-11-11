@@ -78,7 +78,7 @@ class EP_PHP_Proxy {
 		 *
 		 * It contains the template query, credentials, and the endpoint URL.
 		 */
-		require '../../uploads/ep-custom-proxy.php';
+		require 'uploads/ep-custom-proxy.php';
 
 		$this->query          = $query_template;
 		$this->post_index_url = $post_index_url;
